@@ -8,9 +8,15 @@
 
 import Foundation
 
+protocol HomeViewModelDelegate {
+    func requestSuccess(_ news: News)
+    func requestFailure(_ error: errorTypes)
+}
+
 class HomeViewModel {
     
     var apiService: ApiService?
+    var delegate: HomeViewModelDelegate?
     
     func getNews() {
         
@@ -20,9 +26,9 @@ class HomeViewModel {
             
             switch result {
             case .success(let _news):
-                print(_news)
+                self.delegate?.requestSuccess(_news)
             case .failure(let error):
-                print(error)
+                self.delegate?.requestFailure(error)
             }
             
         })

@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let _window = UIWindow(windowScene: windowScene)
         
-        let viewController = ViewController()
+        let viewController = NewsViewController()
         let navController = UINavigationController(rootViewController: viewController)
         
         _window.rootViewController = navController

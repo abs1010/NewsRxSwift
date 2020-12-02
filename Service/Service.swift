@@ -8,18 +8,18 @@
 
 import Foundation
 
+enum errorTypes: Error {
+    case noData
+    case cannotProccess
+}
+
 class ApiService {
     
     fileprivate let _key = "6ace23c5086742ea849174cf7e33169b"
-    var baseURL = "https://newsapi.org/v2/top-headlines?country=us&apiKey="
+    var baseURL = ""
     
     init() {
-        self.baseURL = "https://newsapi.org/v2/top-headlines?country=br&apiKey=\(_key)"
-    }
-    
-    enum errorTypes: Error {
-        case noData
-        case cannotProccess
+        self.baseURL = "https://newsapi.org/v2/top-headlines?country=us&apiKey=\(_key)"
     }
     
     func getNews(completion: @escaping(Result<News, errorTypes>) -> Void) {
