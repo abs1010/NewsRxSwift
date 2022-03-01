@@ -42,6 +42,7 @@ class NewsTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - SetupView
     private func setupView() {
         self.contentView.addSubview(title)
         self.contentView.addSubview(textDescription)
